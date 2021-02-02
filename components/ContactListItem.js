@@ -19,16 +19,16 @@ export default function ContatcListItem({name, phone, onPress}){
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1
+        flex: 1,
+        paddingLeft: 24
     }, 
 
     contactInfo: {
         flexDirection: "row",
         paddingVertical: 16,
         paddingHorizontal: 24,
-        borderBottomColor: 'gray',
+        borderBottomColor: colors.secondary,
         borderBottomWidth: 0.5,
-        backgroundColor: colors.secondary
     },
 
     detail: {
