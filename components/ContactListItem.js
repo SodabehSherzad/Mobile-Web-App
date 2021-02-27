@@ -2,8 +2,9 @@ import React from 'react'
 import{ View, Text, StyleSheet, TouchableOpacity } from 'react-native'
 import colors from '../utils/colors.js' 
 import Avatar from './Avatar.js'
+import { MaterialIcons } from "@expo/vector-icons";
 
-export default function ContatcListItem({name, phone, onPress}){
+export default function ContatcListItem({name, phone, onPress, onDeleteContact}){
     return (
         <TouchableOpacity onPress={onPress} style={styles.container}>
             <View style={styles.contactInfo}>
@@ -12,6 +13,9 @@ export default function ContatcListItem({name, phone, onPress}){
                     <Text style={styles.title}>{name}</Text>
                     <Text style={styles.subTitle}>{phone}</Text>
                 </View>
+                <View style={styles.deleteIcon}>
+                    <MaterialIcons name="delete" color="red" size={24} onPress={onDeleteContact} />
+                </View>
             </View>
         </TouchableOpacity>
     )
@@ -19,11 +23,11 @@ export default function ContatcListItem({name, phone, onPress}){
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1,
         paddingLeft: 24
     }, 
 
     contactInfo: {
+        flex: 1,
         flexDirection: "row",
         paddingVertical: 16,
         paddingHorizontal: 24,
@@ -32,6 +36,7 @@ const styles = StyleSheet.create({
     },
 
     detail: {
+        flex: 2,
         marginLeft: 20
     },
 
@@ -42,5 +47,10 @@ const styles = StyleSheet.create({
     },
     subTitle: {
         color: colors.primary
+    },
+
+    deleteIcon: {
+        flex: 1,
+        marginLeft: 100
     }
 })
